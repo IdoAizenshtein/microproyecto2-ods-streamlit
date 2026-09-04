@@ -7,8 +7,7 @@ Artificial de la Universidad de los Andes.
 
 ## Aplicación en vivo
 
-El enlace público se añadirá aquí después de completar el despliegue en Streamlit
-Community Cloud.
+[Abrir la aplicación en Streamlit Community Cloud](https://microproyecto2-ods-aizenshtein-vera.streamlit.app/)
 
 ## Método
 
@@ -23,7 +22,7 @@ limitaciones necesarias para interpretar la salida.
 
 ## Ejecución local
 
-Se recomienda Python 3.13, la misma versión seleccionada para el despliegue. Desde
+Se recomienda Python 3.14, la misma versión utilizada por el despliegue. Desde
 esta carpeta:
 
 ```bash
