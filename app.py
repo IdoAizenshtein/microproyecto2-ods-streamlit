@@ -77,7 +77,7 @@ if clasificar:
 
         columna_ods, columna_confianza = st.columns(2)
         columna_ods.metric("ODS predicho", prediccion)
-        columna_confianza.metric("Confianza estimada", f"{confianza:.1%}")
+        columna_confianza.metric("Puntuación del modelo", f"{confianza:.1%}")
 
         st.subheader("Tres resultados con mayor puntuación")
         alternativas = pd.DataFrame(
@@ -91,8 +91,8 @@ if clasificar:
 
         if confianza < 0.50:
             st.info(
-                "La predicción principal tiene una puntuación moderada. El texto "
-                "puede mezclar varios objetivos y conviene revisarlo manualmente."
+                "La puntuación más alta es inferior al 50 %. Revise también las "
+                "alternativas antes de usar el resultado."
             )
 
 st.divider()
@@ -109,3 +109,8 @@ with st.expander("Alcance y limitaciones"):
           especialmente cuando un texto trata varios ODS.
         """
     )
+
+st.caption(
+    "Código y archivos de la aplicación: "
+    "[GitHub](https://github.com/IdoAizenshtein/microproyecto2-ods-streamlit)"
+)
