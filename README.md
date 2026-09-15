@@ -31,8 +31,7 @@ negaciones también puede perder información del texto.
 El notebook obtiene la lista de palabras vacías y la guarda en el
 `FunctionTransformer` del pipeline. Durante la inferencia, la aplicación usa esa
 lista serializada y no ejecuta `nltk.download` ni descarga modelos lingüísticos.
-El identificador `nltk-snowball-es-v1` aparece en los metadatos y en el apartado
-«Alcance y limitaciones» de la aplicación.
+El identificador `nltk-snowball-es-v1` queda registrado en los metadatos del modelo.
 
 El modelo recibe texto libre en español y muestra el número y el nombre del ODS
 predicho. También presenta las tres puntuaciones más altas y comunica las
@@ -56,8 +55,7 @@ extrajeron de él.
 
 ## Ejecución local
 
-Se recomienda Python 3.14, la misma versión utilizada por el despliegue. Desde
-esta carpeta:
+La configuración local usa Python 3.14. Desde esta carpeta:
 
 ```bash
 python -m pip install -r requirements.txt
@@ -67,6 +65,30 @@ streamlit run app.py
 Los archivos `modelo_ods.joblib` y `preprocesamiento.py` deben permanecer en la
 misma carpeta que `app.py`; el módulo permite cargar la función guardada en el
 pipeline.
+
+El modelo guardado usa `scikit-learn 1.9.0` y registra `NLTK 3.10.3` en sus
+metadatos. Estas versiones están fijadas en `requirements.txt`. Cambiar el archivo
+de requisitos no actualiza una instalación existente: hay que ejecutar de nuevo
+el comando de instalación anterior. En Community Cloud, los cambios de requisitos
+se aplican al publicar la actualización del repositorio.
+
+La referencia al módulo se puede consultar sin entrenar ni modificar el modelo.
+Desde esta carpeta, en una consola de Python:
+
+```python
+import inspect
+from joblib import load
+
+modelo = load("modelo_ods.joblib")["modelo"]
+funcion = modelo.named_steps["preparacion"].func
+print(funcion.__module__)          # preprocesamiento
+print(funcion.__name__)            # preparar_textos
+print(inspect.getsourcefile(funcion))
+```
+
+La última línea muestra la ruta al `preprocesamiento.py` de esta aplicación.
+No hace falta un `import` explícito en `app.py`: la carga del pipeline resuelve
+esa referencia, y el paso de preparación llama a la función al procesar un texto.
 
 ## Despliegue y actualización
 
