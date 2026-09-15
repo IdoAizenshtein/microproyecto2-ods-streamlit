@@ -1,9 +1,13 @@
 # Clasificador de textos por Objetivos de Desarrollo Sostenible
 
-Aplicación interactiva del **Microproyecto 2** de la Maestría en Inteligencia
-Artificial de la Universidad de los Andes.
+Aplicación interactiva del **Microproyecto 2** del curso
+[Machine learning no supervisado](https://www.coursera.org/learn/maia-machine-learning-no-supervisado/home/welcome),
+de la [Maestría en Inteligencia Artificial (MAIA)](https://sistemas.uniandes.edu.co/maia/)
+de la Universidad de los Andes, Bogotá, Colombia.
 
 **Autores:** Ido Aizenshtein y William Armando Vera Serrano.
+
+Es un proyecto académico de estudiantes, no una aplicación oficial de la Universidad.
 
 ## Aplicación en vivo
 
@@ -65,6 +69,7 @@ streamlit run app.py
 Los archivos `modelo_ods.joblib` y `preprocesamiento.py` deben permanecer en la
 misma carpeta que `app.py`; el módulo permite cargar la función guardada en el
 pipeline.
+La carpeta `assets` también debe conservarse para mostrar el logotipo.
 
 El modelo guardado usa `scikit-learn 1.9.0` y registra `NLTK 3.10.3` en sus
 metadatos. Estas versiones están fijadas en `requirements.txt`. Cambiar el archivo
@@ -116,6 +121,17 @@ Los errores de instalación o ejecución se consultan en **Manage app**.
 - `modelo_ods.joblib`: pipeline ajustado y metadatos mínimos de despliegue.
 - `requirements.txt`: versiones reproducibles de las dependencias.
 - `.streamlit/config.toml`: configuración visual de la aplicación.
+- `assets/logo_uniandes.png`: logotipo de la Universidad que aparece en el encabezado.
+
+## Logotipo
+
+El [archivo original](https://ingenieria.uniandes.edu.co/sites/default/files/logo-uniandes_0.png)
+procede del [sitio oficial de la Facultad de Ingeniería](https://ingenieria.uniandes.edu.co/es/file/logo-universidad-de-los-andes).
+Es el logotipo de la Universidad, sin una marca adicional de la facultad.
+Se guarda una copia local sin modificar y se muestra sobre fondo blanco, con sus
+proporciones y colores originales. El nombre del curso y del programa se presentan
+como texto separado, siguiendo las
+[indicaciones de identidad institucional](https://www.uniandes.edu.co/es/la-universidad/historia-mision-y-simbolos/identidad-institucional).
 
 ## Alcance
 

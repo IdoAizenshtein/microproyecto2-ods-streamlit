@@ -12,6 +12,7 @@ st.set_page_config(
 )
 
 RUTA_MODELO = Path(__file__).with_name("modelo_ods.joblib")
+RUTA_LOGO = Path(__file__).parent / "assets" / "logo_uniandes.png"
 
 
 # Streamlit usa firma_modelo como clave de caché, aunque no se lea dentro de la función.
@@ -37,8 +38,15 @@ except Exception as error:
     st.stop()
 
 
+st.image(str(RUTA_LOGO), width=193, link="https://www.uniandes.edu.co/")
 st.title("Clasificación de textos por ODS")
 st.caption("Microproyecto 2 · Ido Aizenshtein y William Armando Vera Serrano")
+st.caption(
+    "Curso: [Machine learning no supervisado]"
+    "(https://www.coursera.org/learn/maia-machine-learning-no-supervisado/home/welcome)  \n"
+    "[Maestría en Inteligencia Artificial (MAIA)](https://sistemas.uniandes.edu.co/maia/)  \n"
+    "Universidad de los Andes · Bogotá, Colombia"
+)
 st.write(
     "Escriba un párrafo en español para consultar con qué Objetivo de Desarrollo "
     "Sostenible se relaciona."
@@ -119,6 +127,9 @@ with st.expander("Sobre este proyecto"):
         "Por eso conviene leer el resultado junto con el texto original."
     )
 
+st.caption(
+    "Proyecto académico de estudiantes. No es una aplicación oficial de la Universidad."
+)
 st.caption(
     "Nombres de los ODS: [PNUD](https://teamup.undp.org/es/). "
     "[Código del proyecto](https://github.com/IdoAizenshtein/microproyecto2-ods-streamlit)."
